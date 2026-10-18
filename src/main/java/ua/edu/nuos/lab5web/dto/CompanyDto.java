@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class CompanyDto implements Serializable {
     Integer id;
-    LocalDateTime createdAt = LocalDateTime.now();
+    LocalDateTime createdAt;
     String description;
     String name;
     Integer quantityEmployees;

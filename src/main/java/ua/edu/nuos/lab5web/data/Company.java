@@ -19,7 +19,7 @@ public class Company {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @Column(name = "created_at", nullable = false)
+    @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
     @Column(name = "description")
@@ -35,5 +35,11 @@ public class Company {
     @OneToMany(mappedBy = "company", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private Set<Vacancy> vacancies = new LinkedHashSet<>();
 
+    @PrePersist
+    public void prePersist() {
+        if (createdAt == null) {
+            createdAt = LocalDateTime.now();
+        }
+    }
 
 }
