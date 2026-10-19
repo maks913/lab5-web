@@ -1,5 +1,6 @@
 package ua.edu.nuos.lab5web.controllers;
 
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -11,14 +12,10 @@ import ua.edu.nuos.lab5web.services.VacancyService;
 
 @Controller
 @RequestMapping("/vacancy")
+@AllArgsConstructor
 public class VacancyController {
     private final VacancyService vacancyService;
     private final CompanyService companyService;
-
-    public VacancyController(VacancyService vacancyService, CompanyService companyService) {
-        this.vacancyService = vacancyService;
-        this.companyService = companyService;
-    }
 
     @GetMapping
     public String getVacancies(Model model) {

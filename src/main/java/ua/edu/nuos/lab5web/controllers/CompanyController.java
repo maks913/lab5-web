@@ -1,5 +1,6 @@
 package ua.edu.nuos.lab5web.controllers;
 
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -12,13 +13,10 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/company")
+@AllArgsConstructor
 public class CompanyController {
 
     private final CompanyService companyService;
-
-    public CompanyController(CompanyService companyService) {
-        this.companyService = companyService;
-    }
 
     @GetMapping
     public String getAll(Model model) {
