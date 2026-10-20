@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Header</title>
+</head>
+<body>
+  <header th:fragment="header" class="container p-0">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm rounded-3 px-3 py-2 mb-4">
+      <div class="container-fluid">
+        <span class="navbar-brand fw-bold d-flex align-items-center gap-2">
+          <span class="bi bi-briefcase-fill"></span>JobCenter
+        </span>
+
+        <div class="collapse navbar-collapse" id="mainNavbar">
+          <div class="navbar-nav ms-auto gap-lg-2 mt-3 mt-lg-0">
+
+            <a class="nav-link px-3 rounded-2 d-flex align-items-center gap-2"
+               th:href="@{/company}">
+              <span class="bi bi-building"></span>Companies
+            </a>
+
+            <a class="nav-link px-3 rounded-2 d-flex align-items-center gap-2"
+               th:href="@{/vacancy}">
+              <span class="bi bi-person-workspace"></span>Vacancies
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+</body>
+</html>

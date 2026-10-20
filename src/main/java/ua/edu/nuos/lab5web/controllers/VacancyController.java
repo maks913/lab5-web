@@ -1,10 +1,12 @@
 package ua.edu.nuos.lab5web.controllers;
 
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ua.edu.nuos.lab5web.dto.VacancyDto;
 import ua.edu.nuos.lab5web.services.CompanyService;
@@ -31,7 +33,7 @@ public class VacancyController {
     }
 
     @PostMapping("/save")
-    public String saveVacancy(VacancyDto vacancyDto) {
+    public String saveVacancy(@Valid VacancyDto vacancyDto) {
         vacancyService.saveVacancy(vacancyDto);
         return "redirect:/vacancy";
     }
